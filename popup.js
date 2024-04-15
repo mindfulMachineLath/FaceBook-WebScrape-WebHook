@@ -14,5 +14,6 @@ scrapeEmails.addEventListener("click", async () => {
 //Function to scrape emails
 
 function scrapeEmailsFromPage() {
-    alert("HI");
+    const pageText = document.body.innerText;
+    console.log(pageText);
 }
