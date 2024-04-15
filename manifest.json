@@ -1,10 +1,20 @@
 {
     "name": "FaceBook Scraper",
-    "description": "Scrape all of the Approved user details data and send it throw the Webhook.",
+    "description": "Scrape all of the Approved user details data and send it through the Webhook.",
     "version": "1.0",
     "manifest_version": 3,
     "action": {
-        "default_popup": "popup.html"
+        "default_popup": "popup.html",
+        "default_icon": "./icon/icon.png"
+    },
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["./action/contentScript.js"]
+        }
+    ],
+    "background": {
+        "service_worker": "./action/background.js"
     },
     "permissions": [
         "activeTab",
