@@ -7,13 +7,17 @@ scrapeEmails.addEventListener("click", async () => {
     // Execute script to parse emails on page
     chrome.scripting.executeScript({
         target: { tabId: tab.id },
-        func: scrapeEmailsFromPage,
+        func: scrapeUserDatasFromPage,
     })
 })
 
 //Function to scrape emails
 
-function scrapeEmailsFromPage() {
-    const pageText = document.body.innerText;
-    console.log(pageText);
+function scrapeUserDatasFromPage() {
+    const classNames = 'Box d-flex p-3 width-full public source';
+    const selector = classNames.split(' ').map(cls => `.${cls}`).join('');
+    const elements = document.querySelectorAll(selector);
+    const htmlArray = Array.from(elements).map(element => element.innerHTML);
+    console.log(htmlArray);
+    // return htmlArray;
 }
