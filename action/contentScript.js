@@ -3,23 +3,22 @@ function scrapeUserDatasFromPage() {
     const selector = classNames.split(' ').map(cls => `.${cls}`).join('');
     const elements = document.querySelectorAll(selector);
     // Map each element's innerHTML to an object with a "data" key
-    // const data = Array.from(elements).map(element => {
-    //     return {"data": element.innerHTML};
-    // });
     const data = Array.from(elements).map(element => {
-        continue;
-        return {
-            "name": "test1",
-            "question1": "test question1",
-            "answer1": "test answer1",
-            "question2": "test question2",
-            "answer2": "test answer2",
-            "question3": "test question3",
-            "answer3": "test answer3",
-            "question4": "test question4",
-            "answer4": "test answer4"
-        };
+        return {"data": element.innerHTML};
     });
+    // const data = Array.from(elements).map(element => {
+    //     return {
+    //         "name": "test1",
+    //         "question1": "test question1",
+    //         "answer1": "test answer1",
+    //         "question2": "test question2",
+    //         "answer2": "test answer2",
+    //         "question3": "test question3",
+    //         "answer3": "test answer3",
+    //         "question4": "test question4",
+    //         "answer4": "test answer4"
+    //     };
+    // });
     console.log(data);
     return data;
 }
