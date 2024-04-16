@@ -1,7 +1,57 @@
 body {
     min-width: 300px;
+    padding: 15px;
+    background-color: #242526; /* Sets the entire background to black */
+    color: #fff; /* Sets text color to white for visibility */
+    font-family: Arial, sans-serif;
 }
+
 
 .center {
     text-align: center;
+    margin: 0 auto;
+}
+
+.header {
+    padding: 3px 3px;
+    border-bottom: 2px solid #0866ff; /* Adds a stylish blue border */
+}
+
+.header h1 {
+    font-size: 20px;
+    color: #0866ff; /* Blue color for the title to stand out */
+}
+
+
+.button-24 {
+    background: #0866ff;
+    border: 1px solid #0866ff;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 16px;
+    min-height: 40px;
+    outline: 0;
+    padding: 12px 10px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    width: 100%; /* Makes the button fill the container */
+    max-width: 250px; /* Limits button width for better aesthetics */
+}
+
+.button-24:hover,
+.button-24:active {
+    background-color: #004cbf; /* Changed to a solid color for hover */
+    color: #FFFFFF;
+}
+
+.button-24:active {
+    opacity: .5;
 }

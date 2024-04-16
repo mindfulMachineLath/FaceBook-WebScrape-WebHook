@@ -4,7 +4,8 @@ let scrapeUserDetails = document.getElementById('scrapeData');
 scrapeUserDetails.addEventListener("click", () => {
     // Get the current active tab
     chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-        if (tabs.length === 0) return; // Ensure there is at least one tab
+        // Ensure there is at least one tab
+        if (tabs.length === 0) return;
         // Send a message to the content script
         chrome.tabs.sendMessage(tabs[0].id, {action: "scrapeData"}, (response) => {
             if (chrome.runtime.lastError || !response) {
