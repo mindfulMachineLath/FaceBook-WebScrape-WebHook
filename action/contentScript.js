@@ -1,24 +1,18 @@
 function scrapeUserDatasFromPage() {
     const classNames = 'x1y1aw1k x4uap5 xwib8y2 xkhd6sd';
-    const selector = classNames.split(' ').map(cls => `.${cls}`).join('');
-    const elements = document.querySelectorAll(selector);
+    const selector = classNames.split(' ').map(cls => `div.${cls}`).join('');
+    elements = document.querySelectorAll('div.x1y1aw1k.x4uap5.xwib8y2.xkhd6sd')
+    function getInnerData(element) {
+        return Array.from(element.querySelectorAll('.x1y1aw1k.x4uap5.xwib8y2.xkhd6sd')).map(e => e.innerHTML);
+    }
     // Map each element's innerHTML to an object with a "data" key
     const data = Array.from(elements).map(element => {
-        return {"data": element.innerHTML};
+        const QA = getInnerData(element);
+        return {
+            "nestedData": QA
+        };
     });
-    // const data = Array.from(elements).map(element => {
-    //     return {
-    //         "name": "test1",
-    //         "question1": "test question1",
-    //         "answer1": "test answer1",
-    //         "question2": "test question2",
-    //         "answer2": "test answer2",
-    //         "question3": "test question3",
-    //         "answer3": "test answer3",
-    //         "question4": "test question4",
-    //         "answer4": "test answer4"
-    //     };
-    // });
+    console.log(selector);
     console.log(data);
     return data;
 }
