@@ -10,15 +10,17 @@ scrapeUserDetails.addEventListener("click", () => {
         chrome.tabs.sendMessage(tabs[0].id, {action: "scrapeData"}, (response) => {
             if (chrome.runtime.lastError || !response) {
                 // Handle error or no response
-                console.error('Error or no response:', chrome.runtime.lastError?.message);
+                //console.error('Error or no response:', chrome.runtime.lastError?.message);
                 return;
             }
             // Now send this data to the background script
             chrome.runtime.sendMessage({data: response.data}, (response) => {
                 if (response && response.status === 'success') {
                     updateStatus('Success', 'success');
-                } else {
+                } else if(response.status === 'failed') {
                     updateStatus('Failed', 'failed');
+                } else if (response.status === 'Can not find the requested data') {
+                    updateStatus('Can not find the requested data', 'failed');
                 }
             });
         });
@@ -28,5 +30,5 @@ scrapeUserDetails.addEventListener("click", () => {
 function updateStatus (message, style) {
     const statusDiv = document.getElementById('status');
     statusDiv.textContent = message;
-    statusDiv.class = style;
+    statusDiv.className = style;
 }

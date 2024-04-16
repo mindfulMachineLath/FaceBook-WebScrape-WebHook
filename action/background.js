@@ -1,6 +1,7 @@
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     // const webhookUrl = 'https://hook.us1.make.com/gi7ituiw6cd03tase2892q9v1ui2vxwo';
     const webhookUrl = 'https://webhook.site/63af08cf-ab6a-465b-88ad-827c7606037a';
+    // const webhookUrl = 'https://webhook.site/63af08ab6a-465b-88ad-827c7606037a';
     const raw = JSON.stringify([
         {
             "name": "test1",
@@ -26,6 +27,10 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         }
     ]);
     // JSON.stringify(message.data)
+    if(JSON.stringify(message.data) == "[]"){
+        sendResponse({ status: 'Can not find the requested data' });
+        return false;
+    }
     fetch(webhookUrl, {
         method: 'POST',
         headers: {
@@ -35,12 +40,14 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     })
         .then(response => {
             // Check if the response is okay
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
+            // Respond to the sender that the data has been sent to the webhook
+            if (response == null || !response.ok) {
+                sendResponse({ status: 'failed' });
+                return true;
             }
+            else sendResponse({ status: 'success' });
+            return false;
         })
-    // Respond to the sender that the data has been sent to the webhook
-    sendResponse({ status: 'success' });
     // Return true to keep the messaging channel open for asynchronous response
     return true;
 });
