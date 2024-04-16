@@ -15,10 +15,18 @@ scrapeUserDetails.addEventListener("click", () => {
             }
             // Now send this data to the background script
             chrome.runtime.sendMessage({data: response.data}, (response) => {
-                if (response) {
-                    console.log(response.status);
+                if (response && response.status === 'success') {
+                    updateStatus('Success', 'success');
+                } else {
+                    updateStatus('Failed', 'failed');
                 }
             });
         });
     });
 });
+
+function updateStatus (message, style) {
+    const statusDiv = document.getElementById('status');
+    statusDiv.textContent = message;
+    statusDiv.class = style;
+}

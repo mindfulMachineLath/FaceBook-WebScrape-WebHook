@@ -17,8 +17,8 @@ function scrapeUserDatasFromPage() {
     }
     // Map each element's innerHTML to an object with a "data" key
     const data = Array.from(elements).map(element => getInnerData(element));
-    console.log(selector);
-    console.log(data);
+    // console.log(selector);
+    // console.log(data);
     return data;
 }
 

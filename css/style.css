@@ -22,6 +22,14 @@ body {
     color: #0866ff; /* Blue color for the title to stand out */
 }
 
+.success {
+    color: green;
+}
+
+.failed {
+    color: red;
+}
+
 
 .button-24 {
     background: #0866ff;
