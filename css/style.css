@@ -1,40 +1,97 @@
 body {
     min-width: 300px;
     padding: 15px;
-    background-color: #242526; /* Sets the entire background to black */
-    color: #fff; /* Sets text color to white for visibility */
+    background-color: #242526;
+    /* Sets the entire background to black */
+    color: #fff;
+    /* Sets text color to white for visibility */
     font-family: Arial, sans-serif;
 }
 
 
 .center {
-    text-align: center;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .header {
     padding: 3px 3px;
-    border-bottom: 2px solid #0866ff; /* Adds a stylish blue border */
+    border-bottom: 2px solid #0866ff;
+    /* Adds a stylish blue border */
 }
 
 .header h1 {
     font-size: 20px;
-    color: #0866ff; /* Blue color for the title to stand out */
+    color: #0866ff;
+    /* Blue color for the title to stand out */
 }
 
 .success {
     margin-top: 10px;
-    color: #08a808; /* Green color for text */
-    font-weight: bold; /* Makes the text bold */
+    color: #08a808;
+    /* Green color for text */
+    font-weight: bold;
+    /* Makes the text bold */
     font-size: 25px;
 }
 
 .failed {
     margin-top: 10px;
-    color: red; /* Red color for text */
-    font-weight: bold; /* Makes the text bold */
+    color: red;
+    /* Red color for text */
+    font-weight: bold;
+    /* Makes the text bold */
     font-size: 25px;
+    text-align: center;
 }
+
+
+.loader {
+    text-align: center;
+    margin-top:  14px;
+    width: 48px;
+    height: 48px;
+    border: 10px solid #FFF;
+    border-radius: 50%;
+    position: relative;
+    transform: rotate(45deg);
+    box-sizing: border-box;
+}
+
+.loader::before {
+    content: "";
+    position: absolute;
+    box-sizing: border-box;
+    inset: -10px;
+    border-radius: 50%;
+    border: 10px solid #FF3D00;
+    animation: prixClipFix 2s infinite linear;
+}
+
+@keyframes prixClipFix {
+    0% {
+        clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0)
+    }
+
+    25% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0)
+    }
+
+    50% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%)
+    }
+
+    75% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%)
+    }
+
+    100% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0)
+    }
+}
+
 
 
 .button-24 {
@@ -56,13 +113,16 @@ body {
     -webkit-user-select: none;
     touch-action: manipulation;
     vertical-align: middle;
-    width: 100%; /* Makes the button fill the container */
-    max-width: 250px; /* Limits button width for better aesthetics */
+    width: 100%;
+    /* Makes the button fill the container */
+    max-width: 250px;
+    /* Limits button width for better aesthetics */
 }
 
 .button-24:hover,
 .button-24:active {
-    background-color: #004cbf; /* Changed to a solid color for hover */
+    background-color: #004cbf;
+    /* Changed to a solid color for hover */
     color: #FFFFFF;
 }
 
