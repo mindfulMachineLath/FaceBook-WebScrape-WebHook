@@ -4,26 +4,24 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     // const webhookUrl = 'https://webhook.site/63af08ab6a-465b-88ad-827c7606037a';
     const raw = JSON.stringify([
         {
-            "name": "test1",
-            "question1": "test question1",
-            "answer1": "test answer1",
-            "question2": "test question2",
-            "answer2": "test answer2",
-            "question3": "test question3",
-            "answer3": "test answer3",
-            "question4": "test question4",
-            "answer4": "test answer4"
+            "question1": "Have you listened to The Premed Years Podcast? It's free and like having an advisor in your pocket! Visit www.premedyears.com to subscribe!",
+            "answer1": "Not yet, but I'll be sure to check it out at premedyears.com!",
+            "question2": "Where do/did you go to undergrad? If you are a family member of a premed, answer with their school.",
+            "answer2": "Arizona State University",
+            "question3": "Where are you in the premed process? What do you need the most help with?",
+            "answer3": "Pre reqs",
+            "question4": "Do you agree to the group rules from the admin?",
+            "answer4": "I agree"
         },
         {
-            "name": "test2",
-            "question1": "test question1",
-            "answer1": "test answer1",
-            "question2": "test question2",
-            "answer2": "test answer2",
-            "question3": "test question3",
-            "answer3": "test answer3",
-            "question4": "test question4",
-            "answer4": "test answer4"
+            "question1": "Have you listened to The Premed Years Podcast? It's free and like having an advisor in your pocket! Visit www.premedyears.com to subscribe!",
+            "answer1": "Not yet, but I'll be sure to check it out at premedyears.com!",
+            "question2": "Where do/did you go to undergrad? If you are a family member of a premed, answer with their school.",
+            "answer2": "Arizona State University",
+            "question3": "Where are you in the premed process? What do you need the most help with?",
+            "answer3": "Pre reqs",
+            "question4": "Do you agree to the group rules from the admin?",
+            "answer4": "I agree"
         }
     ]);
     // JSON.stringify(message.data)
@@ -37,8 +35,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(message.data)
-    })
-        .then(response => {
+    }).then(response => {
             // Check if the response is okay
             // Respond to the sender that the data has been sent to the webhook
             if (response == null || !response.ok) {

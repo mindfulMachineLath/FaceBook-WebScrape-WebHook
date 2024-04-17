@@ -29,9 +29,9 @@ scrapeUserDetails.addEventListener("click", () => {
                 // Hide the loading indicator irrespective of the response
                 showLoading(false);
                 if (response && response.status === 'success') {
-                    updateStatus('Success', 'success');
+                    updateStatus('SUCCESS', 'success');
                 } else if(response.status === 'failed') {
-                    updateStatus('Failed', 'failed');
+                    updateStatus('FAILD', 'failed');
                 } else if (response.status === 'Can not find the requested data') {
                     updateStatus('Can not find the requested data', 'failed');
                 }
