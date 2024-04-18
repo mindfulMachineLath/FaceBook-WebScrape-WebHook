@@ -1,6 +1,6 @@
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    // const webhookUrl = 'https://hook.us1.make.com/gi7ituiw6cd03tase2892q9v1ui2vxwo';
-    const webhookUrl = 'https://webhook.site/63af08cf-ab6a-465b-88ad-827c7606037a';
+    const webhookUrl = 'https://hook.us1.make.com/gi7ituiw6cd03tase2892q9v1ui2vxwo';
+    // const webhookUrl = 'https://webhook.site/63af08cf-ab6a-465b-88ad-827c7606037a';
     // const webhookUrl = 'https://webhook.site/63af08ab6a-465b-88ad-827c7606037a';
     const raw = JSON.stringify([
         {
