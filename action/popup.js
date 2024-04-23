@@ -14,7 +14,7 @@ scrapeUserDetails.addEventListener("click", () => {
         //delay action
         setTimeout(() => {
             console.log("calculated");
-        }, 1000);
+        }, 1500);
 
         // Send a message to the content script
         chrome.tabs.sendMessage(tabs[0].id, {action: "scrapeData"}, (response) => {
